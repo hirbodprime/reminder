@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block head %}
+    <meta http-equiv="refresh" content="1">
+{% endblock head %}
+{% block body %}
+
+{% for a in alarms %}
+    <br>
+    <div class="col d-flex justify-content-center">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <button type="button" class="btn btn-info">
+                    <h5 class="card-title">{{ a.title }}</h5>
+                </button>
+                <p class="card-text">{{ a.description }}</p>
+            </div>
+              <ul class="list-group list-group-flush">
+{#                <li class="list-group-item"> alarm created at: {{ a.CreatedAt }}</li>#}
+                <li class="list-group-item">Ding Ding you have interview at {{ a.DayHappening }}
+{#                    {% if not a.Threshold == 'custom pick' %}#}
+{#                        {{ a.Threshold }} {{ a.DayHappening }}#}
+{#                    {% endif %}#}
+{#                    {% if a.CustomPick %}#}
+{#                        {{ a.CustomPick }}#}
+{#                    {% endif %}#}
+                    </li>
+              </ul>
+              <div class="card-body">
+{#                  {% if not a.Threshold == 'custom pick' %}#}
+{#                      <button type="button" class="btn btn-warning">#}
+{#                        Threshold: {{ a.Threshold }}#}
+{#                      </button>#}
+{#                  {% endif %}#}
+{#                  {% if a.CustomPick %}#}
+{#                      <button type="button" class="btn btn-warning">#}
+{#                        Threshold: {{ a.CustomPick }}#}
+{#                        day happening: {{ a.DayHappening }}#}
+{#                      </button>#}
+{#                  {% endif %}#}
+              <button type="button" class="btn btn-info">
+                <a href="{% url 'UpdateViewName' a.pk %}" style="text-decoration:none; color: black;" class="card-link">edit</a>
+                  </button>
+                <button type="button" class="btn btn-danger">
+                    <a href="{% url 'DeleteViewName' a.pk %}" style="text-decoration:none; color: black;" class="card-link">delete</a>
+                </button>
+              </div>
+        </div>
+
+    </div>
+    <br>
+{% endfor %}
+
+
+
+
+
+{% endblock body %}

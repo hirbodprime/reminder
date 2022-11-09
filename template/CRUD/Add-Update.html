@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block body %}
+    <br>
+<div class="col d-flex justify-content-center">
+    <div class="container">
+        <form method="POST">
+            {% csrf_token %}
+            {{form|crispy}}
+            <br>
+            <button type="submit" class="btn btn-primary">button</button>
+        </form>
+    </div>
+</div>
+
+    <div class="col d-flex justify-content-center">
+        <input class="btn btn-primary" type=button value="Previous Page" onClick="javascript:history.go(-1);">
+    </div>
+{% endblock body %}

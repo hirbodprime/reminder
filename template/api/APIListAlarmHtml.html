@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block body %}
+    {% for a in alarm %}
+        <p>title: {{ a.title }}</p>
+        <p>description: {{ a.description }}</p>
+        <p>Created At: {{ a.CreatedAt }}</p>
+        <p>DyOfJudgement: {{ a.DyOfJudgement }}</p>
+        <p>PickADate: {{ a.CustomPick }}</p>
+        <p>Threshold: {{ a.Threshold }}</p>
+    {% endfor %}
+{% endblock body %}

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="col d-flex justify-content-center">
+<form method='POST'>
+    {% csrf_token %}
+    <p>are you sure? {{object}}</p>
+    <input type='submit' class="form-control" value='Confirm'>
+</form>
+</div>
+{% endblock body %}
